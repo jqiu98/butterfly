@@ -7,4 +7,13 @@
         android:layout_height="match_parent"
         android:id="@+id/fragmentContainer"
         tools:context=".MainActivity">
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        app:menu="@menu/navigation" />
 </LinearLayout>
+
