@@ -1,4 +1,5 @@
-package com.example.jeff.butterfly.Model;\
+package com.example.jeff.butterfly.Model;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -70,7 +71,6 @@ public class Transaction {
 		} catch(ParseException pe) {
 			pe.printStackTrace();
 			date = "error";
-			time = "error";
 		}
 		return this;
 	}
