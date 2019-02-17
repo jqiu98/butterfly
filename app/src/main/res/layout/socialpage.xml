@@ -7,10 +7,20 @@
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
     tools:context=".MainActivity">
-
+<ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="86dp"
+        android:layout_height="92dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="22dp"
+        app:srcCompat="@drawable/lollipopicon1"
+        tools:layout_editor_absoluteX="282dp"
+        tools:layout_editor_absoluteY="48dp" />
 
     <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="84dp" android:layout_alignParentEnd="true" android:id="@+id/socialFeed"/>
+            android:layout_height="285dp" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="318dp" android:layout_alignParentEnd="true" android:id="@+id/socialFeed"/>
 </RelativeLayout>
