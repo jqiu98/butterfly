@@ -82,6 +82,8 @@ public class LandingFragment extends Fragment {
 				// Log.e("------------------------------", titleWords+"_"+bodyWords+"_"+stateSwitch);
 				// db.dbStuff();
 				db.makeTransaction(titleWords, bodyWords, stateSwitch);
+				title.setText("");
+				body.setText("");
 			}
 		});
 	}
