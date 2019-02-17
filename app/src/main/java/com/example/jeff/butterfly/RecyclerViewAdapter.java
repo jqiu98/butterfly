@@ -42,8 +42,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     // total number of rows
     @Override
     public int getItemCount() {
-        return 3;
-        // return mData.size();
+//        return 3;
+         return mData.size();
     }
 
 

@@ -22,19 +22,19 @@ public class SocialFeedFragment extends Fragment {
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {
-        Log.e("----------------------------","ONCREATE");
         super.onCreate(savedInstanceState);
         db = new DbHelper(this.getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.e("----------------------------","ONCREATEVIEW");
+        
         return inflater.inflate(R.layout.socialpage, container, false);
     }
     
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+    	Log.e("----------------------------","onActivityCreated");
         super.onActivityCreated(savedInstanceState);
         view = getView();
         activity = (AppCompatActivity) getActivity();
@@ -42,11 +42,11 @@ public class SocialFeedFragment extends Fragment {
     }
 
     private void initRecyclerView(){
-    	Log.e("----------------------------","-------------------------------------");
         feed = view.findViewById(R.id.socialFeed);
         feed.removeAllViews();
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(activity,db.getSocialPosts());
         feed.setAdapter(adapter);
+        Log.e("----------------------------","ADAPTERSET");
         feed.setLayoutManager(new LinearLayoutManager(activity));
     }
 }

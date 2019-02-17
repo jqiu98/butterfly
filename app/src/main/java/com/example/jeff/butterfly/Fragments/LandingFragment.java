@@ -69,10 +69,8 @@ public class LandingFragment extends Fragment {
 				else {
 					stateSwitch = 0;
 				}
-//				Log.e("stuff", "onClick: errorhlfsdhdsafhdhafslhd" );
-//				SQLiteDatabase asdf = this.getReadableDatabase();
-//				Cursor c = asdf.rawQuery("SELECT * from lollipop",null);
-//				Log.e("CURSOR", "onClick: ", );
+
+				Log.e("------------------------------", titleWords+"_"+bodyWords+"_"+stateSwitch);
 				db.makeTransaction(titleWords, bodyWords, stateSwitch);
 			}
 		});

@@ -74,7 +74,7 @@ public class DbHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT *  FROM Lollipop WHERE isPub = 1 ORDER by timestamp DESC", null);
         while(c.moveToNext()){
-//            Log.e("DATABASING", "===================================================" + DatabaseUtils.dumpCursorToString(c) );
+           Log.e("DATABASING", "===================================================" + DatabaseUtils.dumpCursorToString(c) );
             list.add(
                 new Transaction()
                     .setTitle(c.getString(2))
