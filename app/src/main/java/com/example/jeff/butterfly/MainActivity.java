@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.MenuItem;
 import com.example.jeff.butterfly.Fragments.LandingFragment;
+import com.example.jeff.butterfly.Fragments.PersonalFeedFragment;
 import com.example.jeff.butterfly.Fragments.SocialFeedFragment;
 
 import java.util.ArrayList;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
  
             case R.id.navigation_dashboard:
                 fragment = new SocialFeedFragment();
+                break;
+            case R.id.navigation_notifications:
+                fragment = new PersonalFeedFragment();
                 break;
         }
  
