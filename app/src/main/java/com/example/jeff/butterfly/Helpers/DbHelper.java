@@ -64,10 +64,13 @@ public class DbHelper extends SQLiteOpenHelper{
     public long makeTransaction(String title, String body, Integer isPub){
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues content = new ContentValues();
+        if (!title.isEmpty()){
+            return 12;
+        }
         content.put("title",title);
         content.put("body",body);
         content.put("isPub",isPub);
-        content.put("owner",1);
+        content.put("owner",1)  ;
         // content.put("saved",0);
 //        db.execSQL(AHHHHHHH);
 //        Log.e("alsdkfskdlfsdafkl","alksdflksadfadfjkls");
