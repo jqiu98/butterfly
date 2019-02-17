@@ -24,19 +24,16 @@
         tools:layout_editor_absoluteY="260dp" />
 
     <EditText
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/body"
-        android:layout_alignStart="@+id/body"
-        android:layout_marginStart="-1dp"
-        android:layout_marginBottom="9dp"
-        android:background="#fff"
-        android:ems="10"
-        android:hint="What made you smile today?"
-        android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="220dp" />
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:ems="10"
+            android:hint="What made you smile today?"
+            android:inputType="textMultiLine"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="220dp" android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" android:layout_marginTop="289dp"/>
 
     <Button
         android:id="@+id/button3"
@@ -90,16 +87,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="208dp"
-        android:text="Write about your day"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="227dp"
+            android:text="Write about your day"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     <Switch
         android:id="@+id/switch1"

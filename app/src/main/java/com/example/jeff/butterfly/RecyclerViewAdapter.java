@@ -2,6 +2,7 @@ package com.example.jeff.butterfly;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +35,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Transaction transaction = mData.get(position);
         holder.title.setText(transaction.getTitle());
+        Log.e("what is in there", "this is ti"+transaction.getBody());
+        holder.body.setText(transaction.getBody());
+        holder.body.setVisibility(View.GONE);
+
+        holder.title.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    if (holder.body.getVisibility() == View.VISIBLE){
+                        holder.body.setVisibility(View.GONE);
+                    }
+                    else{
+                        holder.body.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
     }
 
     // total number of rows
@@ -51,12 +67,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
+        TextView body;
 
         public ViewHolder(View itemView){
             super(itemView);
-            title = itemView.findViewById(R.id.post);
-        }
 
+            title = itemView.findViewById(R.id.post);
+            body = itemView.findViewById(R.id.body);
+        }
 }
         
 
