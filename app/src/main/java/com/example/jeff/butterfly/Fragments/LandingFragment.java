@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import com.example.jeff.butterfly.Helpers.DbHelper;
+import com.example.jeff.butterfly.Model.Transaction;
 import com.example.jeff.butterfly.R;
 
 public class LandingFragment extends Fragment {
@@ -45,7 +47,14 @@ public class LandingFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 		view = getView();
 		activity = (AppCompatActivity)getActivity();
+		quoteOfDay();
 		getButtons();
+	}
+
+	private void quoteOfDay(){
+		TextView quote = view.findViewById(R.id.quote);
+		Transaction something = db.getRandomPost();
+		quote.setText(something.getTitle());
 	}
 
 	private void getButtons(){

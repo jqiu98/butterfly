@@ -60,9 +60,11 @@
         android:background="@drawable/border">
 
         <TextView
-            android:id="@+id/quote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                android:id="@+id/quote"
+                android:layout_width="372dp"
+                android:layout_height="73dp"
+                android:gravity="center" android:textSize="18sp"/>
+            
     </FrameLayout>
 
     <ImageView

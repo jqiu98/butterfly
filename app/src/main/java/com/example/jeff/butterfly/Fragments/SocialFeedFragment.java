@@ -34,7 +34,7 @@ public class SocialFeedFragment extends Fragment {
     
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-    	Log.e("----------------------------","onActivityCreated");
+    	// Log.e("----------------------------","onActivityCreated");
         super.onActivityCreated(savedInstanceState);
         view = getView();
         activity = (AppCompatActivity) getActivity();
@@ -46,7 +46,7 @@ public class SocialFeedFragment extends Fragment {
         feed.removeAllViews();
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(activity,db.getSocialPosts());
         feed.setAdapter(adapter);
-        Log.e("----------------------------","ADAPTERSET");
+        // Log.e("----------------------------","ADAPTERSET");
         feed.setLayoutManager(new LinearLayoutManager(activity));
     }
 }
