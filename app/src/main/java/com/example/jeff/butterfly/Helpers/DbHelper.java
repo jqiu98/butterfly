@@ -1,13 +1,16 @@
 package com.example.jeff.butterfly.Helpers;
 
 import android.content.ContentValues;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import com.example.jeff.butterfly.Model.Transaction;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper{
     private final static int DATABASE_VERSION = 1;
@@ -50,8 +53,8 @@ public class DbHelper extends SQLiteOpenHelper{
         return db.insert("Lollipop",null, content);
     }
 
-    public ArrayList<Transaction> getYourPosts(){
-        ArrayList<Transaction> list = new ArrayList<Transaction>();
+    public List<Transaction> getYourPosts(){
+        List<Transaction> list = new ArrayList<Transaction>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM Lollipop WHERE owner = 1 ORDER by timestamp DESC", null);
         while(c.moveToNext()){
@@ -66,11 +69,12 @@ public class DbHelper extends SQLiteOpenHelper{
         return list;
     }
 
-    public ArrayList<Transaction> getSocialPosts(){
-        ArrayList<Transaction> list = new ArrayList<Transaction>();
+    public List<Transaction> getSocialPosts(){
+        List<Transaction> list = new ArrayList<Transaction>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * saved FROM Lollipop WHERE isPub = 1 ORDER by timestamp DESC", null);
+        Cursor c = db.rawQuery("SELECT *  FROM Lollipop WHERE isPub = 1 ORDER by timestamp DESC", null);
         while(c.moveToNext()){
+//            Log.e("DATABASING", "===================================================" + DatabaseUtils.dumpCursorToString(c) );
             list.add(
                 new Transaction()
                     .setTitle(c.getString(2))
@@ -82,8 +86,8 @@ public class DbHelper extends SQLiteOpenHelper{
         return list;
     }
 
-    public ArrayList<Transaction> getRandomPosts(){
-        ArrayList<Transaction> list = new ArrayList<Transaction>();
+    public List<Transaction> getRandomPosts(){
+        List<Transaction> list = new ArrayList<Transaction>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM Lollipop WHERE owner = 1 BY RAND() LIMIT 1", null);
         if(c.moveToFirst()){
@@ -98,21 +102,21 @@ public class DbHelper extends SQLiteOpenHelper{
         return list;
     }
 
-    public ArrayList<Transaction> getSavedPosts(){
-        ArrayList<Transaction> list = new ArrayList<Transaction>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM Lollipop WHERE saved = 1", null);
-        while(c.moveToNext()){
-            list.add(
-                new Transaction()
-                    .setTitle(c.getString(2))
-                    .setBody   (c.getString(3))
-                    .setDateAndTime(c.getString(5))
-                    );
-        }
-        c.close();
-        return list;
-    }
+    // public List<Transaction> getSavedPosts(){
+    //     List<Transaction> list = new ArrayList<Transaction>();
+    //     SQLiteDatabase db = this.getReadableDatabase();
+    //     Cursor c = db.rawQuery("SELECT * FROM Lollipop WHERE saved = 1", null);
+    //     while(c.moveToNext()){
+    //         list.add(
+    //             new Transaction()
+    //                 .setTitle(c.getString(2))
+    //                 .setBody   (c.getString(3))
+    //                 .setDateAndTime(c.getString(5))
+    //                 );
+    //     }
+    //     c.close();
+    //     return list;
+    // }
 
 }
 

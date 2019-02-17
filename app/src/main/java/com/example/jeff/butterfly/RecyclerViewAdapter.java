@@ -6,71 +6,79 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.example.jeff.butterfly.Model.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
-    private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
+    private List<Transaction> mData;
+    private Context mContext;
+
+    // private LayoutInflater mInflater;
+    // private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    RecyclerViewAdapter(Context context, List<String> data) {
-        this.mInflater = LayoutInflater.from(context);
+    public RecyclerViewAdapter(Context context, List<Transaction> data) {
+        mContext = context;
         this.mData = data;
     }
 
     // inflates the row layout from xml when needed
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.lollipop1, parent, false);
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.lollipop1, viewGroup, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        Transaction transaction = mData.get(position);
+        holder.title.setText(transaction.getTitle());
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        return 3;
+        // return mData.size();
     }
 
 
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ViewHolder(View itemView) {
+        TextView title;
+
+        public ViewHolder(View itemView){
             super(itemView);
-            myTextView = itemView.findViewById(R.id.post);
-            itemView.setOnClickListener(this);
+            title = itemView.findViewById(R.id.post);
         }
 
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
-        }
-    }
+}
+        
 
-    // convenience method for getting data at click position
-    String getItem(int id) {
-        return mData.get(id);
-    }
+    //     @Override
+    //     public void onClick(View view) {
+    //         if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+    //     }
+    // }
 
-    // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
+    // // convenience method for getting data at click position
+    // String getItem(int id) {
+    //     return mData.get(id);
+    // }
 
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
-    }
+    // // allows clicks events to be caught
+    // void setClickListener(ItemClickListener itemClickListener) {
+    //     this.mClickListener = itemClickListener;
+    // }
+
+    // // parent activity will implement this method to respond to click events
+    // public interface ItemClickListener {
+    //     void onItemClick(View view, int position);
+    // }
 }
 

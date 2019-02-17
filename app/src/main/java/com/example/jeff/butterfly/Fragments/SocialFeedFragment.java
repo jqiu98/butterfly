@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +22,14 @@ public class SocialFeedFragment extends Fragment {
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {
+        Log.e("----------------------------","ONCREATE");
         super.onCreate(savedInstanceState);
         db = new DbHelper(this.getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.e("----------------------------","ONCREATEVIEW");
         return inflater.inflate(R.layout.socialpage, container, false);
     }
     
@@ -39,10 +42,11 @@ public class SocialFeedFragment extends Fragment {
     }
 
     private void initRecyclerView(){
+    	Log.e("----------------------------","-------------------------------------");
         feed = view.findViewById(R.id.socialFeed);
         feed.removeAllViews();
-//        RecyclerViewAdapter adapter = new RecyclerViewAdapter(activity, db.getAllTransactions());
-//        feed.setAdapter(adapter);
-//        feed.setLayoutManager(new LinearLayoutManager(activity));
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(activity,db.getSocialPosts());
+        feed.setAdapter(adapter);
+        feed.setLayoutManager(new LinearLayoutManager(activity));
     }
 }
